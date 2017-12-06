@@ -1,4 +1,4 @@
-.TH lcovrc 5 "LCOV 1.12" 2015\-04\-22 "User Manuals"
+.TH lcovrc 5 "LCOV 1.13" 2015\-10\-05 "User Manuals"
 
 .SH NAME
 lcovrc \- lcov configuration file
@@ -157,6 +157,11 @@ genhtml_desc_html=0
 # Specify the precision for coverage rates
 .br
 #genhtml_precision=1
+.br
+
+# Demangle C++ symbols
+.br
+#genhtml_demangle_cpp=1
 .br
 
 # Location of the gcov tool
@@ -555,6 +560,25 @@ when a custom HTML prolog is specified (see also
 .br
 
 Default is UTF-8.
+.PP
+
+.BR genhtml_demangle_cpp " ="
+.IR 0 | 1
+.IP
+If non-zero, demangle C++ function names in function overviews.
+
+Set this option to one if you want to convert C++ internal function
+names to human readable format for display on the HTML function overview
+page.  This option requires that the c++filt tool is installed (see
+.BR c++filt(1)
+).
+.br
+
+This option corresponds to the \-\-demangle\-cpp command line option of
+.BR genhtml .
+.br
+
+Default is 0.
 .PP
 
 .BR genhtml_desc_html " ="
